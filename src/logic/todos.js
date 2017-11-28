@@ -29,6 +29,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         items: [...state.items, newItem],
       };
+    case DELETE_ITEM:
+        return {
+          ...state,
+          items: state.items.filter((i)=> i.id!==action.id),
+        };
     default:
       return state;
   }
