@@ -14,9 +14,9 @@ export const toggleItem=id =>{
 
 export const initialState = {
   items: [
-    { id: 1, content: 'Call mum' },
-    { id: 2, content: 'Buy cat food' },
-    { id: 3, content: 'Water the plants' },
+    { id: 1, content: 'Call mum' , isComplete:false},
+    { id: 2, content: 'Buy cat food', isComplete:false },
+    { id: 3, content: 'Water the plants', isComplete:false },
   ],
 };
 
@@ -39,6 +39,11 @@ const reducer = (state = initialState, action) => {
           ...state,
           items: state.items.filter((i)=> i.id!==action.id),
         };
+    case TOGGLE_ITEM:
+     return{
+       ...state,
+       items:state.items.map((i)=>{return i.id===action.id?{...i,isComplete:!i.isComplete}:i})
+     }
     default:
       return state;
   }
