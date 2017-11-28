@@ -48,6 +48,11 @@ const reducer = (state = initialState, action) => {
        ...state,
        items:state.items.map((i)=>{return i.id===action.id?{...i,isComplete:!i.isComplete}:i})
      }
+    case TOGGLE_HIDE_COMPLETE:
+     return{
+       ...state,
+       hideComplete:!state.hideComplete
+     }
     default:
       return state;
   }
