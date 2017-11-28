@@ -27,4 +27,9 @@ describe('ItemsList', () => {
     const renderedItem = shallow(<ItemsList {...defaultProps} items={items} />);
     expect(renderedItem.find('li')).toHaveLength(2);
   });
+  it('should render delete button for each item', () => {
+    const items = [{ id: 1, content: 'Test 1' }, { id: 2, content: 'Test 2' }];
+    const renderedItem = shallow(<ItemsList {...defaultProps} items={items} />);
+    expect(renderedItem.find('button')).toHaveLength(2);
+  });
 });
