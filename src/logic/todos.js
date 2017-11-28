@@ -1,9 +1,12 @@
 export const ADD_ITEM = 'qgo/assessment/ADD_ITEM';
+export const DELETE_ITEM='qgo/assessment/DELETE_ITEM';
 
 export const addItem = content => {
   return { type: ADD_ITEM, content };
 };
-
+export const deleteItem=id =>{
+  return { type: DELETE_ITEM, id };
+}
 export const initialState = {
   items: [
     { id: 1, content: 'Call mum' },

@@ -32,4 +32,12 @@ describe('ItemsList', () => {
     const renderedItem = shallow(<ItemsList {...defaultProps} items={items} />);
     expect(renderedItem.find('button')).toHaveLength(2);
   });
+  it('should call onDelete when click delete button', () => {
+    const onDeleteMock=jest.fn();
+    const items = [{ id: 1, content: 'Test 1' }];
+    const renderedItem = shallow(<ItemsList {...defaultProps} items={items} onDelete={onDeleteMock} />);
+    renderedItem.find("button").simulate('click');
+    expect(onDeleteMock.mock.calls.length).toBe(1);
+    expect(onDeleteMock.mock.calls[0][0]).toBe(1);
+  });
 });
