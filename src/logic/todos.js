@@ -1,6 +1,7 @@
 export const ADD_ITEM = 'qgo/assessment/ADD_ITEM';
 export const DELETE_ITEM='qgo/assessment/DELETE_ITEM';
 export const TOGGLE_ITEM='qgo/assessment/TOGGLE_ITEM';
+export const TOGGLE_HIDE_COMPLETE='qgo/assessment/TOGGLE_HIDE_COMPLETE';
 
 export const addItem = content => {
   return { type: ADD_ITEM, content };
@@ -10,6 +11,9 @@ export const deleteItem=id =>{
 }
 export const toggleItem=id =>{
   return { type: TOGGLE_ITEM, id };
+}
+export const toggleHideComplete=()=>{
+  return {type: TOGGLE_HIDE_COMPLETE}
 }
 
 export const initialState = {
