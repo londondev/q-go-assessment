@@ -40,4 +40,9 @@ describe('ItemsList', () => {
     expect(onDeleteMock.mock.calls.length).toBe(1);
     expect(onDeleteMock.mock.calls[0][0]).toBe(1);
   });
+  it('should render checkbox toggle for each item',()=>{
+    const items = [{ id: 1, content: 'Test 1',isComplete:true }, { id: 2, content: 'Test 2',isComplete:false }];
+    const renderedItem= shallow(<ItemsList {...defaultProps} items={items} />);
+    expect(renderedItem.find('input[type="checkbox"]')).toHaveLength(2);
+  });
 });
