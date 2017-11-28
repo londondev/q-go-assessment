@@ -78,3 +78,10 @@ Ideally this should feel as much like normal development as possible.
 * You can add any libraries you need to get the job done.
 * Please contact us if you have any questions about the task, we're happy to
   give more details!
+
+## Candidate Notes:
+I tried to commit after passing each test, so you will be able to track every changes.
+I believe it will help understand my approach. I tried to cover all the test cases, but
+still I might miss some corner cases. I would use test coverage tool to ensure I am covering
+all the execution path. Styling would be another improvement point. I would use also snapshot
+test if I have more time.
