@@ -52,4 +52,16 @@ describe('ItemsList', () => {
     expect(toggleItemMock.mock.calls.length).toBe(1);
     expect(toggleItemMock.mock.calls[0][0]).toBe(2);
   });
+  it('should not render completed items if hideComplete true',()=>{
+    const toggleItemMock=jest.fn();
+    const items = [{ id: 1, content: 'Test 1',isComplete:true }, { id: 2, content: 'Test 2',isComplete:false }];
+    const renderedItem=shallow(<ItemsList {...defaultProps} items={items} onToggle={toggleItemMock(2)} hideComplete={true}/>)
+    expect(renderedItem.find("li").length).toBe(1);
+  });
+  it('should render completed items if hideComplete false',()=>{
+    const toggleItemMock=jest.fn();
+    const items = [{ id: 1, content: 'Test 1',isComplete:true }, { id: 2, content: 'Test 2',isComplete:false }];
+    const renderedItem=shallow(<ItemsList {...defaultProps} items={items} onToggle={toggleItemMock(2)} hideComplete={false}/>)
+    expect(renderedItem.find("li").length).toBe(2);
+  });
 });
